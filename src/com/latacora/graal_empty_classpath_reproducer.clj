@@ -13,7 +13,11 @@
                             (System/getProperty "java.class.path")
                             (re-pattern (System/getProperty "path.separator")))]
     (pp/pprint
-     {:alleged-classpath-length (count alleged-classpath)
+     {:java-home (System/getProperty "java.home")
+      :java-vendor (System/getProperty "java.vendor")
+      :java-version (System/getProperty "java.version")
+
+      :alleged-classpath-length (count alleged-classpath)
       :alleged-classpath (vec alleged-classpath)
 
       :property-classpath-length (count property-classpath)
