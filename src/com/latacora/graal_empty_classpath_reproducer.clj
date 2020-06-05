@@ -16,7 +16,7 @@
       :buggy? (not= alleged-classpath system-classpath)
 
       :java-home (System/getProperty "java.home")
-      :java-vendor (System/getProperty "java.vendor")
+      :java-vendor (System/getProperty "java.vendor.version")
       :java-version (System/getProperty "java.version")
 
       :alleged-classpath-length (count alleged-classpath)
