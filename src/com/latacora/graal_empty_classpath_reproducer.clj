@@ -10,7 +10,8 @@
   (let [alleged-classpath (cp/classpath)
         system-classpath (cp/system-classpath)]
     (pp/pprint
-     {;; while these don't always have to be equal, even for a non-buggy impl,
+     (array-map  ;; for ordering
+      ;; while these don't always have to be equal, even for a non-buggy impl,
       ;; this is the simplest way to see if the bug is occurring in our test.
       :buggy? (not= alleged-classpath system-classpath)
 
@@ -29,4 +30,4 @@
                                      (mapv (juxt identity cp/loader-classpath)))
 
       :property-classpath-length (count system-classpath)
-      :property-classpath (vec system-classpath)})))
+      :property-classpath (vec system-classpath)))))
